@@ -1,9 +1,9 @@
 import brcrypt from 'bcryptjs';
 import { JWT } from '../../utils/jwt';
-import { UserDocument } from './user.types';
-import { UserModel } from './user.model';
+import { CustomerDocument } from './customer.types';
+import { CustomerModel } from './customer.model';
 
-interface UserParams {
+interface CustomerParams {
   params: {
     username: string;
     email: string;
@@ -11,14 +11,14 @@ interface UserParams {
   };
 }
 
-export class UserMethods {
+export class CustomerMethods {
   static async register({
     params,
-  }: UserParams): Promise<{ newUser: UserDocument; token: string }> {
+  }: CustomerParams): Promise<{ newUser: CustomerDocument; token: string }> {
     let user = params;
     user.password = brcrypt.hashSync(params.password, 12);
 
-    const newUser = new UserModel(user);
+    const newUser = new CustomerModel(user);
     await newUser.save();
 
     const token = JWT.generateToken({

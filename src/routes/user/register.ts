@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { UserMethods } from '../../database/users/user.statics';
+import { CustomerMethods } from '../../database/customers/customer.statics';
 import validate from '../../middlewares/validate';
 import { registerFields } from '../../middlewares/validateRegister';
 const router = Router();
@@ -11,7 +11,7 @@ router.post(
     try {
       const { username, email, password } = req.body;
 
-      const { newUser, token } = await UserMethods.register({
+      const { newUser, token } = await CustomerMethods.register({
         params: { username, email, password },
       });
       delete newUser.password;
