@@ -18,4 +18,16 @@ export class SupportMethods {
 
     return { newTicket };
   }
+
+  static async getUserTickects({
+    userId,
+  }: {
+    userId: string;
+  }): Promise<{ tickets: any }> {
+    let tickets = await SupportModel.find({ created_by: userId }).populate(
+      'support'
+    );
+    
+    return { tickets };
+  }
 }
