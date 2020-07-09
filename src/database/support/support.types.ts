@@ -5,6 +5,7 @@ export interface Support {
   created_by: UserDocument;
   message: string;
   status: string;
+  title: string;
 }
 
 export interface SupportDocument extends Support, Document {}

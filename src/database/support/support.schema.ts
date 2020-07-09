@@ -7,6 +7,10 @@ export const SupportSchema = new Schema(
       ref: 'user',
       required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
     message: {
       type: String,
       required: true,
@@ -18,5 +22,15 @@ export const SupportSchema = new Schema(
       default: 'OPEN',
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform(doc, ret) {
+        ret.id = ret._id;
+        delete ret._id;
+        delete ret.__v;
+      },
+    },
+  }
 );

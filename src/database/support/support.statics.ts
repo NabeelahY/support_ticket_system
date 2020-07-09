@@ -5,6 +5,7 @@ interface TicketParams {
     created_by: string;
     message: string;
     status: string;
+    title: string;
   };
 }
 
