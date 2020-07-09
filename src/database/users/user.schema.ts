@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-const userSchema = new Schema(
+export const UserSchema = new Schema(
   {
     username: {
       type: String,
