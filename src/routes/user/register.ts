@@ -14,7 +14,7 @@ router.post(
       const { newUser, token } = await UserMethods.register({
         params: { username, email, password },
       });
-      delete newUser.password;
+      req.headers['Authorization'] = token;
 
       res.status(201).json({ user: newUser, token });
     } catch (error) {
