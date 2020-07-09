@@ -8,7 +8,7 @@ interface TicketParams {
   };
 }
 
-export class UserMethods {
+export class SupportMethods {
   static async createTicket({
     params,
   }: TicketParams): Promise<{ newTicket: SupportDocument }> {

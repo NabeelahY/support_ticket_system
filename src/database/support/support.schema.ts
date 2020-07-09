@@ -12,6 +12,7 @@ export const SupportSchema = new Schema(
       required: true,
     },
     status: {
+      type: String,
       required: true,
       enum: ['OPEN', 'PROCESSING', 'REVIEWING', 'DONE'],
       default: 'OPEN',
