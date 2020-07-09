@@ -6,7 +6,7 @@ export const registerFields = [
     .withMessage(
       'Username is required and must have a minimum of 2 characters'
     ),
-  body('email').isEmail().withMessage('Email is required must be valid'),
+  body('email').isEmail().withMessage('Email is required and must be valid'),
   body('password')
     .isString()
     .isLength({ min: 7 })

@@ -4,6 +4,7 @@ export interface User {
   username: string;
   email: string;
   password: string;
+  isSupport: boolean;
 }
 
 export interface UserDocument extends User, Document {}

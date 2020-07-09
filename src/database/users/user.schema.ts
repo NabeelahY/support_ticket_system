@@ -16,6 +16,22 @@ export const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    isSupport: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform(doc, ret) {
+        ret.id = ret._id;
+        delete ret._id;
+        delete ret.password;
+        delete ret.__v;
+      },
+    },
+  }
 );
