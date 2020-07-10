@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest  --coverage --watchAll --no-cache",
+    "test:CI": "jest",
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
     "build": "tsc"
