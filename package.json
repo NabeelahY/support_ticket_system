@@ -8,13 +8,19 @@
     "test:CI": "jest",
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
-    "build": "tsc"
+    "build": "tsc",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
     "setupFilesAfterEnv": [
       "./src/test/index.ts"
+    ],
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!data/keyMap.js",
+      "!/node_modules/"
     ]
   },
   "repository": {
@@ -49,6 +55,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.4",
     "@types/supertest": "^2.0.10",
+    "coveralls": "^3.1.0",
     "jest": "^26.1.0",
     "mongodb-memory-server": "^6.6.1",
     "nodemon": "^2.0.4",
