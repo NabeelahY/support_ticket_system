@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { UserMethods } from '../../database/users/user.statics';
+import { UserMethods } from '../../database/user/user.statics';
 import validate from '../../middlewares/validate';
 import { registerFields } from '../../middlewares/validateRegister';
 import { emailDoesNotExist } from '../../middlewares/email_not_exist';

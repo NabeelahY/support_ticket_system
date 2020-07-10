@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { config } from '../config/config';
-import { UserDocument } from '../database/users/user.types';
 
 interface TokenType {
   id: string;
