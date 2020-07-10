@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 
 import server from '../../../api/server';
-import { userTest } from '../../../tests';
+import { userDetail } from '../../../tests';
 
 const request = supertest(server);
 
@@ -14,7 +14,7 @@ describe('[POST] Create Ticket', () => {
   });
 
   it('Error if fields do not pass validation', async () => {
-    const token = await userTest();
+    const { token } = await userDetail();
     await request
       .post('/api/support/create-ticket')
       .set('Authorization', token)
@@ -32,7 +32,7 @@ describe('[POST] Create Ticket', () => {
   });
 
   it('User can create ticket with correct fields and token on header', async () => {
-    const token = await userTest();
+    const { token } = await userDetail();
     const res = await request
       .post('/api/support/create-ticket')
       .set('Authorization', token)

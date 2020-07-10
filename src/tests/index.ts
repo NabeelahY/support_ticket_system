@@ -35,12 +35,12 @@ afterAll(async () => {
 
 const request = supertest(server);
 
-export const userTest = async () => {
+export const userDetail = async () => {
   const res = await request
     .post('/api/auth/register')
     .send({ username: 'User', email: 'user@email.com', password: '1234567' });
-    
-  const token = res.body.token;
 
-  return token;
+  const { token, user } = res.body;
+
+  return { token, user };
 };
