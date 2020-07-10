@@ -1,5 +1,7 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
+import supertest from 'supertest';
+import server from '../api/server';
 
 let mongo: any;
 
@@ -30,3 +32,15 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+const request = supertest(server);
+
+export const userTest = async () => {
+  const res = await request
+    .post('/api/auth/register')
+    .send({ username: 'User', email: 'user@email.com', password: '1234567' });
+    
+  const token = res.body.token;
+
+  return token;
+};
