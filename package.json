@@ -4,7 +4,7 @@
   "description": "Creating the architecture and design of a customer support ticketing system",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest  --coverage --watchAll --no-cache",
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
     "build": "tsc"
@@ -39,6 +39,11 @@
     "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "@types/jest": "^26.0.4",
+    "@types/supertest": "^2.0.10",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.1"
   }
 }

@@ -12,7 +12,7 @@ server.use(cors());
 server.use(express.urlencoded({ extended: true }));
 
 server.get('/', (req, res) => {
-  res.send('Server is up!');
+  res.status(200).send({ message: 'Server is up!' });
 });
 
 server.use('/api', appRouter);
