@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { UserModel } from '../database/users/user.model';
+import { UserModel } from '../database/user/user.model';
 
 export const userIdDoesNotExist = async (
   req: Request,

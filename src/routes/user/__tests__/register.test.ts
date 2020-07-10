@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 
 import server from '../../../api/server';
-import { UserModel } from '../../../database/users/user.model';
+import { UserModel } from '../../../database/user/user.model';
 
 const request = supertest(server);
 
