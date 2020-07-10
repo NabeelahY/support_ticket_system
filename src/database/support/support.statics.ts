@@ -27,7 +27,7 @@ export class SupportMethods {
     let tickets = await SupportModel.find({ created_by: userId }).populate(
       'support'
     );
-    
+
     return { tickets };
   }
 }
