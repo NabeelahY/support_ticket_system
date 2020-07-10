@@ -1,8 +1,6 @@
-import express from 'express';
+import server from '../src/api/server';
 import { connect } from './database/database';
 import { config } from './config/config';
-
-const server = express();
 
 connect();
 
