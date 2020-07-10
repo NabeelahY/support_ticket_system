@@ -1,12 +1,14 @@
 import { Router, Request, Response } from 'express';
 import { SupportMethods } from '../../database/support/support.statics';
 import { restricted } from '../../middlewares/restricted';
+import { userIdDoesNotExist } from '../../middlewares/user_id_not_exists';
 
 const router = Router();
 
 router.get(
   '/tickets/:userId',
   restricted,
+  userIdDoesNotExist,
   async (req: Request, res: Response) => {
     try {
       const tickets = await SupportMethods.getUserTickects({
