@@ -4,7 +4,8 @@
   "description": "Creating the architecture and design of a customer support ticketing system",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest  --coverage --watchAll --no-cache",
+    "test": "jest  --coverage --watchAll --no-cache --forceExit",
+    "test:CI": "jest",
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
     "build": "tsc"
