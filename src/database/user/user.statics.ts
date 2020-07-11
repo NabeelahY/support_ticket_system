@@ -24,6 +24,7 @@ export class UserMethods {
     const token = JWT.generateToken({
       id: newUser.id,
       email: newUser.email,
+      isSupport: newUser.isSupport,
     });
 
     return { newUser, token };
