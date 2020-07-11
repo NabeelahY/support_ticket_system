@@ -3,15 +3,16 @@ import { Router, Request, Response } from 'express';
 import { restricted } from '../../middlewares/restricted';
 import validate from '../../middlewares/validate';
 import { CommentMethods } from '../../database/comment/comment.statics';
-import { SupportModel } from '../../database/support/support.model';
 import { userCannotComment } from '../../middlewares/userCannotComment';
 import { ticketDoesNotExist } from '../../middlewares/ticketDoesNotExist';
+import { commentFields } from '../../middlewares/validateComment';
 
 const router = Router();
 
 router.post(
   '/ticket/:ticketId/comment',
   restricted,
+  validate(commentFields),
   ticketDoesNotExist,
   userCannotComment,
   async (req: Request, res: Response) => {
