@@ -7,18 +7,18 @@ interface CommentParams {
     created_by: string;
     comment: string;
   };
-  productId: string;
+  ticketId: string;
 }
 
 export class CommentMethods {
   static async createComment({
-    productId,
+    ticketId,
     params,
   }: CommentParams): Promise<{ newComment: CommentDocument }> {
     let newComment = new CommentModel(params);
     await newComment.save();
     await SupportModel.findByIdAndUpdate(
-      productId,
+      ticketId,
       {
         $push: {
           comments: {
