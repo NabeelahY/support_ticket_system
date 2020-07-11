@@ -1,32 +1,16 @@
 import { Schema } from 'mongoose';
 
-export const SupportSchema = new Schema(
+export const CommentSchema = new Schema(
   {
     created_by: {
       type: Schema.Types.ObjectId,
       ref: 'user',
       required: true,
     },
-    title: {
+    comment: {
       type: String,
       required: true,
     },
-    message: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      required: true,
-      enum: ['OPEN', 'REVIEWING', 'RESOLVED'],
-      default: 'OPEN',
-    },
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'comment',
-      },
-    ],
   },
   {
     timestamps: true,
