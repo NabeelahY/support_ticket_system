@@ -15,4 +15,5 @@ export interface SupportModel extends Model<SupportDocument> {
   message: string;
   status: string;
   title: string;
+  comments: Comment[];
 }

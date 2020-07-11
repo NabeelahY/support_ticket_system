@@ -1,7 +1,6 @@
 import supertest from 'supertest';
 
 import server from '../../../api/server';
-import { UserModel } from '../../../database/user/user.model';
 
 const request = supertest(server);
 

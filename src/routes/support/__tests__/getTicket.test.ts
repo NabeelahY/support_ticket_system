@@ -1,12 +1,7 @@
 import supertest from 'supertest';
-import mongoose from 'mongoose';
 
 import server from '../../../api/server';
-import { userDetail } from '../../../tests';
-
-export const generateID = (): string => {
-  return mongoose.Types.ObjectId().toHexString();
-};
+import { userDetail, generateID } from '../../../tests';
 
 const request = supertest(server);
 

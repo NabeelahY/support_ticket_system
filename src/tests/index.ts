@@ -19,7 +19,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  jest.setTimeout(30000);
+  jest.setTimeout(50000);
 
   const collections = await mongoose.connection.db.collections();
 
@@ -35,6 +35,10 @@ afterAll(async () => {
 
 const request = supertest(server);
 
+export const generateID = (): string => {
+  return mongoose.Types.ObjectId().toHexString();
+};
+
 export const userDetail = async () => {
   const res = await request
     .post('/api/auth/register')
@@ -43,4 +47,33 @@ export const userDetail = async () => {
   const { token, user } = res.body;
 
   return { token, user };
+};
+
+export const supportUserDetail = async () => {
+  const res = await request.post('/api/auth/register').send({
+    username: 'Support',
+    email: 'support@email.com',
+    password: '1234567',
+    isSupport: true,
+  });
+
+  const { token, user } = res.body;
+
+  return { token, user };
+};
+
+export const createTicketTest = async (support: boolean) => {
+  let result: any;
+  support
+    ? (result = await supportUserDetail())
+    : (result = await userDetail());
+
+  const { token, user } = result;
+  const res = await request
+    .post('/api/support/create-ticket')
+    .set('Authorization', token)
+    .send({ title: 'Title', message: 'Message' });
+  const { body } = res;
+
+  return { body, token };
 };

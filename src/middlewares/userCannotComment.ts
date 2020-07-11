@@ -11,7 +11,7 @@ export const userCannotComment = async (
     
     const userIsSupport = req.decoded.isSupport
     if (ticket!.status !== 'REVIEWING' && !userIsSupport) {
-      return res.status(401).json({
+      return res.status(400).json({
         message: 'Your ticket has not been reviewed yet. Please be patient.',
       });
     }
