@@ -6,6 +6,7 @@ interface TokenType {
   id: string;
   email: string;
   iat: number;
+  isSupport: boolean;
 }
 
 declare global {

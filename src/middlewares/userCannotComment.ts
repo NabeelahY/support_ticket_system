@@ -8,7 +8,9 @@ export const userCannotComment = async (
 ) => {
   try {
     const ticket = await SupportModel.findById(req.params.ticketId);
-    if (ticket!.status !== 'REVIEWING') {
+    
+    const userIsSupport = req.decoded.isSupport
+    if (ticket!.status !== 'REVIEWING' && !userIsSupport) {
       return res.status(401).json({
         message: 'Your ticket has not been reviewed yet. Please be patient.',
       });
