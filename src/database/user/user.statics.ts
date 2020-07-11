@@ -8,6 +8,7 @@ interface UserParams {
     username: string;
     email: string;
     password: string;
+    isSupport: boolean;
   };
 }
 
