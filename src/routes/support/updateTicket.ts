@@ -2,12 +2,14 @@ import { Router, Request, Response } from 'express';
 import { SupportMethods } from '../../database/support/support.statics';
 import { restricted } from '../../middlewares/restricted';
 import { ticketDoesNotExist } from '../../middlewares/ticketDoesNotExist';
+import { isSupportAgent } from '../../middlewares/isSupportAgent';
 
 const router = Router();
 
 router.put(
   '/tickets/:ticketId',
   restricted,
+  isSupportAgent,
   ticketDoesNotExist,
   async (req: Request, res: Response) => {
     try {
