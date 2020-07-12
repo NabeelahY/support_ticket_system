@@ -10,4 +10,10 @@ describe('SERVER', () => {
     expect(res.status).toBe(200);
     expect(res.body.message).toEqual('Server is up!');
   });
+
+  it('Error for wrong route', async () => {
+    const res = await request.get('/abc');
+    expect(res.status).toBe(404);
+    expect(res.body.message).toEqual('Route does not exist');
+  });
 });
