@@ -43,6 +43,7 @@ export class SupportMethods {
   ): Promise<{ updatedTicket: any }> {
     let updatedTicket = await SupportModel.findByIdAndUpdate(ticketId, params, {
       new: true,
+      runValidators: true,
     }).populate('comments');
 
     return { updatedTicket };

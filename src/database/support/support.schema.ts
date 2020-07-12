@@ -18,7 +18,7 @@ export const SupportSchema = new Schema(
     status: {
       type: String,
       required: true,
-      enum: ['OPEN', 'REVIEWING', 'RESOLVED'],
+      enum: ['OPEN', 'IN-REVIEW', 'RESOLVED'],
       default: 'OPEN',
     },
     comments: [

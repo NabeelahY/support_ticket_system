@@ -3,6 +3,8 @@ import { SupportMethods } from '../../database/support/support.statics';
 import { restricted } from '../../middlewares/restricted';
 import { ticketDoesNotExist } from '../../middlewares/ticketDoesNotExist';
 import { isSupportAgent } from '../../middlewares/isSupportAgent';
+import validate from '../../middlewares/validate';
+import { statusField } from '../../middlewares/validateFields/validateUpdateTicketStatus';
 
 const router = Router();
 
@@ -10,6 +12,7 @@ router.put(
   '/tickets/:ticketId',
   restricted,
   isSupportAgent,
+  validate(statusField),
   ticketDoesNotExist,
   async (req: Request, res: Response) => {
     try {
