@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { UserMethods } from '../../database/user/user.statics';
 import validate from '../../middlewares/validate';
-import { registerFields } from '../../middlewares/validateRegister';
+import { registerFields } from '../../middlewares/validateFields/validateRegister';
 import { emailDoesNotExist } from '../../middlewares/email_not_exist';
 import { usernameDoesNotExist } from '../../middlewares/username_not_exist';
 const router = Router();

@@ -1,4 +1,4 @@
-import { SupportDocument } from './support.types';
+import { Support } from './support.types';
 import { SupportModel } from './support.model';
 interface TicketParams {
   params: {
@@ -7,19 +7,20 @@ interface TicketParams {
     status: string;
     title: string;
   };
+  ticketId?: string;
 }
 
 export class SupportMethods {
   static async createTicket({
     params,
-  }: TicketParams): Promise<{ newTicket: SupportDocument }> {
+  }: TicketParams): Promise<{ newTicket: Support }> {
     let newTicket = new SupportModel(params);
     await newTicket.save();
 
     return { newTicket };
   }
 
-  static async getUserTickects({
+  static async getUserTickets({
     userId,
   }: {
     userId: string;
@@ -29,5 +30,22 @@ export class SupportMethods {
     );
 
     return { tickets };
+  }
+
+  static async updateTicketStatus(
+    ticketId: string,
+    params: {
+      created_by?: string;
+      message?: string;
+      status: string;
+      title?: string;
+    }
+  ): Promise<{ updatedTicket: any }> {
+    let updatedTicket = await SupportModel.findByIdAndUpdate(ticketId, params, {
+      new: true,
+      runValidators: true,
+    }).populate('comments');
+
+    return { updatedTicket };
   }
 }

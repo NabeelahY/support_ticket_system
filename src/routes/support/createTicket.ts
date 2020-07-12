@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import { SupportMethods } from '../../database/support/support.statics';
 import { restricted } from '../../middlewares/restricted';
 import validate from '../../middlewares/validate';
-import { ticketFields } from '../../middlewares/validateTicket';
+import { ticketFields } from '../../middlewares/validateFields/validateTicket';
 
 const router = Router();
 

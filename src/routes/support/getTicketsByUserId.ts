@@ -11,7 +11,7 @@ router.get(
   userIdDoesNotExist,
   async (req: Request, res: Response) => {
     try {
-      const tickets = await SupportMethods.getUserTickects({
+      const tickets = await SupportMethods.getUserTickets({
         userId: req.params.userId,
       });
       res.status(200).json(tickets);

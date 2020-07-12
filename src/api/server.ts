@@ -18,7 +18,7 @@ server.get('/', (req, res) => {
 server.use('/api', appRouter);
 
 server.all('*', (req, res) => {
-  res.send('Route does not exist');
+  res.status(404).send({ message: 'Route does not exist' });
 });
 
 export default server;

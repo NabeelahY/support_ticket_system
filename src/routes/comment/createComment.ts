@@ -5,7 +5,7 @@ import validate from '../../middlewares/validate';
 import { CommentMethods } from '../../database/comment/comment.statics';
 import { userCannotComment } from '../../middlewares/userCannotComment';
 import { ticketDoesNotExist } from '../../middlewares/ticketDoesNotExist';
-import { commentFields } from '../../middlewares/validateComment';
+import { commentFields } from '../../middlewares/validateFields/validateComment';
 
 const router = Router();
 
