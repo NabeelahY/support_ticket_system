@@ -9,7 +9,8 @@
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
     "build": "tsc",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "seed": "ts-node ./src/seeds/index.ts"
   },
   "jest": {
     "preset": "ts-jest",

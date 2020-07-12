@@ -17,3 +17,10 @@ export const connect = async () => {
     console.log(error);
   }
 };
+
+export const disconnect = () => {
+  if (!config.DATABASE_URL) {
+    return;
+  }
+  mongoose.disconnect();
+};
