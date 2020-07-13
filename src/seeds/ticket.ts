@@ -58,7 +58,7 @@ export const tickets = [
     message: 'Message7',
     created_by: '',
     status: 'RESOLVED',
-    createdAt: '2020-06-23T18:41:11.980Z',
-    updatedAt: '2020-06-23T18:41:11.980Z',
+    createdAt: '2020-05-23T18:41:11.980Z',
+    updatedAt: '2020-05-23T18:41:11.980Z',
   },
 ];

@@ -1,5 +1,6 @@
 import { Support } from './support.types';
 import { SupportModel } from './support.model';
+
 interface TicketParams {
   params: {
     created_by: string;
@@ -26,7 +27,7 @@ export class SupportMethods {
     userId: string;
   }): Promise<{ tickets: any }> {
     let tickets = await SupportModel.find({ created_by: userId }).populate(
-      'support'
+      'comments'
     );
 
     return { tickets };
@@ -47,5 +48,19 @@ export class SupportMethods {
     }).populate('comments');
 
     return { updatedTicket };
+  }
+
+  static async getPastMonthTickets(): Promise<{ tickets: any }> {
+    const currDate = new Date();
+    currDate.setMonth(currDate.getMonth() - 1);
+
+    let tickets = await SupportModel.find(
+      {
+        createdAt: { $gte: currDate },
+        status: 'RESOLVED',
+      }
+    ).populate('comments');
+
+    return { tickets };
   }
 }
