@@ -47,6 +47,6 @@ describe('[PUT] Update Ticket Status', () => {
       .put(`/api/support/tickets/${body.id}`)
       .set('Authorization', token)
       .send({ status: 'IN-REVIEW' })
-      .expect(204);
+      .expect(200);
   });
 });
