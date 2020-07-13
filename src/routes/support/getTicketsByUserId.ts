@@ -6,7 +6,7 @@ import { userIdDoesNotExist } from '../../middlewares/user_id_not_exists';
 const router = Router();
 
 router.get(
-  '/tickets/:userId',
+  '/tickets/user/:userId',
   restricted,
   userIdDoesNotExist,
   async (req: Request, res: Response) => {

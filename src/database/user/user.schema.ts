@@ -1,6 +1,7 @@
 import { Schema } from 'mongoose';
+import bcrypt from 'bcryptjs';
 
-export const UserSchema = new Schema(
+const UserSchema = new Schema(
   {
     username: {
       type: String,
@@ -35,3 +36,12 @@ export const UserSchema = new Schema(
     },
   }
 );
+
+UserSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(this.get('password'), salt);
+  this.set('password', hashedPassword);
+});
+
+export { UserSchema };

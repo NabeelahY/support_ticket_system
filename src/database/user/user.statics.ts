@@ -1,6 +1,5 @@
-import brcrypt from 'bcryptjs';
 import { JWT } from '../../utils/jwt';
-import { UserDocument } from './user.types';
+import { User } from './user.types';
 import { UserModel } from './user.model';
 
 interface UserParams {
@@ -15,10 +14,8 @@ interface UserParams {
 export class UserMethods {
   static async register({
     params,
-  }: UserParams): Promise<{ newUser: UserDocument; token: string }> {
+  }: UserParams): Promise<{ newUser: User; token: string }> {
     let user = params;
-    user.password = brcrypt.hashSync(params.password, 12);
-
     const newUser = new UserModel(user);
     await newUser.save();
 
