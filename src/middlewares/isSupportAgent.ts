@@ -10,7 +10,7 @@ export const isSupportAgent = async (
     if (!userIsSupport) {
       return res.status(401).json({
         message:
-          'You are not authorized to update this ticket. Only support agents can do that.',
+          'You are not authorized to access this. Only support agents are allowed.',
       });
     }
     next();
