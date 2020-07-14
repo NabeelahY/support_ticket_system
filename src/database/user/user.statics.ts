@@ -1,6 +1,7 @@
 import { JWT } from '../../utils/jwt';
 import { User } from './user.types';
 import { UserModel } from './user.model';
+import bcrypt from 'bcryptjs';
 
 interface UserParams {
   params: {
@@ -28,6 +29,32 @@ export class UserMethods {
     });
 
     return { newUser, token };
+  }
+
+  static async login(userDetails: {
+    username?: string;
+    email?: string;
+    password: string;
+  }): Promise<{ user: User; token: string }> {
+    const user = await UserModel.findOne({
+      $or: [{ email: userDetails.email }, { username: userDetails.username }],
+    });
+    if (!user) throw new Error('User does not exist');
+
+    const passwordMatch = bcrypt.compareSync(
+      userDetails.password,
+      user.password
+    );
+    if (!passwordMatch) throw new Error('Incorrect username/email/password');
+
+    const token = JWT.generateToken({
+      id: user.id,
+      email: user.email,
+      isSupport: user.isSupport,
+      isAdmin: user.isAdmin,
+    });
+
+    return { user, token };
   }
 
   static async updateUserStatus(
