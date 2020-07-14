@@ -13,10 +13,10 @@ router.post(
   emailDoesNotExist,
   async (req: Request, res: Response) => {
     try {
-      const { username, email, password, isSupport } = req.body;
+      const { username, email, password, isSupport, isAdmin } = req.body;
 
       const { newUser, token } = await UserMethods.register({
-        params: { username, email, password, isSupport },
+        params: { username, email, password, isSupport, isAdmin },
       });
       req.headers['Authorization'] = token;
 
