@@ -8,6 +8,7 @@ interface UserParams {
     email: string;
     password: string;
     isSupport: boolean;
+    isAdmin: boolean;
   };
 }
 
@@ -27,5 +28,10 @@ export class UserMethods {
     });
 
     return { newUser, token };
+  }
+
+  static async deleteUser(id: string): Promise<{ user: any }> {
+    const user = await UserModel.findByIdAndRemove({ _id: id });
+    return { user };
   }
 }
