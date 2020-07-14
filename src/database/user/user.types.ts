@@ -5,4 +5,5 @@ export interface User extends Document {
   email: string;
   password: string;
   isSupport: boolean;
+  isAdmin: boolean;
 }

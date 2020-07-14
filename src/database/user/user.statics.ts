@@ -23,6 +23,7 @@ export class UserMethods {
       id: newUser.id,
       email: newUser.email,
       isSupport: newUser.isSupport,
+      isAdmin: newUser.isAdmin,
     });
 
     return { newUser, token };
