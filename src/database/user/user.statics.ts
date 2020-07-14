@@ -30,6 +30,21 @@ export class UserMethods {
     return { newUser, token };
   }
 
+  static async updateUserStatus(
+    userId: string,
+    params: {
+      isAdmin?: boolean;
+      isSupport?: boolean;
+    }
+  ): Promise<{ updatedUser: any }> {
+    let updatedUser = await UserModel.findByIdAndUpdate(userId, params, {
+      new: true,
+      runValidators: true,
+    });
+
+    return { updatedUser };
+  }
+
   static async deleteUser(id: string): Promise<{ user: any }> {
     const user = await UserModel.findByIdAndRemove({ _id: id });
     return { user };
