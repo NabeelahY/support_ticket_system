@@ -7,7 +7,7 @@ import { restricted } from '../../middlewares/restricted';
 const router = Router();
 
 router.delete(
-  '/delete/user/:userId',
+  '/delete/:userId',
   restricted,
   userIdDoesNotExist,
   isAdmin,
