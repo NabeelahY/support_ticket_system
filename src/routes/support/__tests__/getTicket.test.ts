@@ -10,7 +10,7 @@ describe('[GET] Get Ticket by userId', () => {
     const { token } = await userDetail();
     const userId = generateID();
     const res = await request
-      .get(`/api/support/tickets/${userId}`)
+      .get(`/api/support/tickets/user/${userId}`)
       .set('Authorization', token);
 
     expect(res.status).toEqual(404);
@@ -19,7 +19,7 @@ describe('[GET] Get Ticket by userId', () => {
   it('Error if user id does not exist and not mongo objectId type', async () => {
     const { token } = await userDetail();
     const res = await request
-      .get(`/api/support/tickets/abc`)
+      .get(`/api/support/tickets/user/abc`)
       .set('Authorization', token);
 
     expect(res.status).toEqual(400);
@@ -28,7 +28,7 @@ describe('[GET] Get Ticket by userId', () => {
   it('User can get previous tickets', async () => {
     const { token, user } = await userDetail();
     const res = await request
-      .get(`/api/support/tickets/${user.id}`)
+      .get(`/api/support/tickets/user/${user.id}`)
       .set('Authorization', token);
 
     expect(res.status).toEqual(200);

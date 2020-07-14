@@ -22,7 +22,7 @@ router.put(
         ticketId,
         req.ticketDetails
       );
-      res.status(204).json(ticket);
+      res.status(200).json(ticket);
     } catch (error) {
       res.status(500).json({ error: error });
     }
