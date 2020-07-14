@@ -45,7 +45,10 @@ export class UserMethods {
       userDetails.password,
       user.password
     );
-    if (!passwordMatch) throw new Error('Incorrect username/email/password');
+    if (!passwordMatch)
+      throw new Error(
+        'Incorrect username or email or password. Please check your credentials and try again.'
+      );
 
     const token = JWT.generateToken({
       id: user.id,

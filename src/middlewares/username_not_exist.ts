@@ -12,7 +12,7 @@ export const usernameDoesNotExist = async (
 
   if (user) {
     return res
-      .status(404)
+      .status(400)
       .json({ error: 'Username already exists. Please use another.' });
   }
   next();
