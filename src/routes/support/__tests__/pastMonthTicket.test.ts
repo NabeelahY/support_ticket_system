@@ -25,4 +25,11 @@ describe('[GET] Get Past Month Ticket', () => {
       .set('Authorization', token)
       .expect(200);
   });
+  it('Support agent get resolved tickets', async () => {
+    const { token } = await createTicketTest(true);
+    await request
+      .get(`/api/support/export`)
+      .set('Authorization', token)
+      .expect(200);
+  });
 });
