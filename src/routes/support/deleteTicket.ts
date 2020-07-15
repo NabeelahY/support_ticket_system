@@ -7,7 +7,7 @@ import { ticketDoesNotExist } from '../../middlewares/ticketDoesNotExist';
 const router = Router();
 
 router.delete(
-  '/delete/ticket/:ticketId',
+  '/ticket/:ticketId',
   restricted,
   ticketDoesNotExist,
   isAdmin,
