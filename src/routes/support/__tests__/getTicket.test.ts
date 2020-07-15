@@ -1,7 +1,8 @@
 import supertest from 'supertest';
 
 import server from '../../../api/server';
-import { userDetail, generateID } from '../../../tests';
+import { userDetail } from '../../../tests';
+import { generateID } from '../../../utils/generateRandomId';
 
 const request = supertest(server);
 
