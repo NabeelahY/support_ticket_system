@@ -79,4 +79,9 @@ export class SupportMethods {
 
     return { csv };
   }
+
+  static async deleteTicket(id: string): Promise<{ ticket: any }> {
+    const ticket = await SupportModel.findByIdAndRemove({ _id: id });
+    return { ticket };
+  }
 }

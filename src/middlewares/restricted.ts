@@ -7,6 +7,7 @@ interface TokenType {
   email: string;
   iat: number;
   isSupport: boolean;
+  isAdmin: boolean;
 }
 
 declare global {

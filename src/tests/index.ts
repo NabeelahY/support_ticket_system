@@ -36,10 +36,6 @@ afterAll(async () => {
 
 const request = supertest(server);
 
-export const generateID = (): string => {
-  return mongoose.Types.ObjectId().toHexString();
-};
-
 export const userDetail = async () => {
   const res = await request
     .post('/api/auth/register')
@@ -56,6 +52,7 @@ export const supportUserDetail = async () => {
     email: 'support@email.com',
     password: '1234567',
     isSupport: true,
+    isAdmin: true,
   });
 
   const { token, user } = res.body;

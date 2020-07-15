@@ -1,5 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserModel } from '../database/user/user.model';
+import { User } from '../database/user/user.types';
+
+declare global {
+  namespace Express {
+    interface Request {
+      userDetails: User;
+    }
+  }
+}
 
 export const userIdDoesNotExist = async (
   req: Request,
@@ -16,6 +25,7 @@ export const userIdDoesNotExist = async (
         .status(404)
         .json({ error: "User does not exist. Please use existing user's id." });
     }
+    req.userDetails = user;
     next();
   } catch (error) {
     return res

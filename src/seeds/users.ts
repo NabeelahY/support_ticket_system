@@ -26,4 +26,11 @@ export const users = [
     password: '12345678',
     isSupport: true,
   },
+  {
+    username: 'Admin',
+    email: 'admin@email.com',
+    password: '12345678',
+    isSupport: true,
+    isAdmin: true,
+  },
 ];
