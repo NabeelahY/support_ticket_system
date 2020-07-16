@@ -11,6 +11,7 @@ import { exportPastTicketsRouter } from './support/exportTicketsCsv';
 import { deleteTicketRouter } from './support/deleteTicket';
 import { updateUserRouter } from './user/updateUserStatus';
 import { loginRouter } from './user/login';
+import { getTicketByIdRouter } from './support/getTicketById';
 
 const router = Router();
 
@@ -24,6 +25,7 @@ router.use('/support', updateTicketRouter);
 router.use('/support', getPastTicketsRouter);
 router.use('/support', exportPastTicketsRouter);
 router.use('/support', deleteTicketRouter);
+router.use('/support', getTicketByIdRouter);
 
 router.use('/user', deleteUserRouter);
 router.use('/user', updateUserRouter);
