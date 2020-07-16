@@ -72,4 +72,4 @@ Typescript was a huge pain in the beginning especially with the models. But once
 
 ### Constructive feedback for improving
 
-I am currently working on the [frontend app](https://support-desk.netlify.app/) consuming this API. Also I plan to add categories to the ticket, to make easy for users to filter tickets based on their categories.
+I am currently working on the [frontend app](https://support-desk.netlify.app/) consuming this API. Also I plan to add categories to the ticket, to make it easy for users to filter tickets based on their categories.
