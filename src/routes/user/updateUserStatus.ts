@@ -21,7 +21,7 @@ router.put(
       req.userDetails.isSupport = req.body.isSupport;
       if (req.body.isAdmin) req.userDetails.isSupport = true;
       const user = await UserMethods.updateUserStatus(userId, req.userDetails);
-      res.status(200).json({ updatedUser: user });
+      res.status(200).json(user);
     } catch (error) {
       res.status(500).json({ error: error });
     }
