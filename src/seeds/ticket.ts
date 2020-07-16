@@ -16,13 +16,13 @@ export const seedTickets = async () => {
       const ticket = new SupportModel(t);
       await ticket.save();
     }
-    console.log('Tickets seeded')
+    console.log('Tickets seeded 🚀')
   } catch (error) {
     console.log(error);
   }
 };
 
-export const tickets = [
+const tickets = [
   { title: 'Ticket title', message: 'Message', created_by: '' },
   { title: 'Ticket title2', message: 'Message2', created_by: '' },
   {
