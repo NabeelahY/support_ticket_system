@@ -9,6 +9,8 @@ export const userCannotComment = async (
   try {
     const ticket = await SupportModel.findById(req.params.ticketId);
 
+    // req.decoded is coming from the restricted middleware
+    // This checks if the logged user is a support agent
     const userIsSupport = req.decoded.isSupport;
     if (ticket!.status !== 'IN-REVIEW' && !userIsSupport) {
       return res.status(400).json({
