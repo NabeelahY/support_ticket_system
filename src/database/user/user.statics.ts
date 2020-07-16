@@ -24,6 +24,7 @@ export class UserMethods {
     const token = JWT.generateToken({
       id: newUser.id,
       email: newUser.email,
+      username: user.username,
       isSupport: newUser.isSupport,
       isAdmin: newUser.isAdmin,
     });
@@ -53,6 +54,7 @@ export class UserMethods {
     const token = JWT.generateToken({
       id: user.id,
       email: user.email,
+      username: user.username,
       isSupport: user.isSupport,
       isAdmin: user.isAdmin,
     });
