@@ -36,6 +36,14 @@ export class SupportMethods {
     return { tickets };
   }
 
+  static async getTicketById(ticketId: string): Promise<{ ticket: any }> {
+    let ticket = await SupportModel.findOne({ _id: ticketId }).populate(
+      'comments'
+    );
+
+    return { ticket };
+  }
+
   static async updateTicketStatus(
     ticketId: string,
     params: {
