@@ -8,9 +8,11 @@ export const userCannotComment = async (
 ) => {
   try {
     const ticket = await SupportModel.findById(req.params.ticketId);
-    
-    const userIsSupport = req.decoded.isSupport
-    if (ticket!.status !== 'REVIEWING' && !userIsSupport) {
+
+    // req.decoded is coming from the restricted middleware
+    // This checks if the logged user is a support agent
+    const userIsSupport = req.decoded.isSupport;
+    if (ticket!.status !== 'IN-REVIEW' && !userIsSupport) {
       return res.status(400).json({
         message: 'Your ticket has not been reviewed yet. Please be patient.',
       });

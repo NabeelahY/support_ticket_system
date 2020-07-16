@@ -11,6 +11,11 @@ export const CommentSchema = new Schema(
       type: String,
       required: true,
     },
+    ticket_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'support',
+      required: true,
+    },
   },
   {
     timestamps: true,

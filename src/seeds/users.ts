@@ -7,13 +7,13 @@ export const seedUsers = async () => {
       const user = new UserModel(u);
       await user.save();
     }
-    console.log('Users seeded');
+    console.log('Users seeded 🚀');
   } catch (error) {
     console.log(error);
   }
 };
 
-export const users = [
+const users = [
   {
     username: 'Name',
     email: 'name@email.com',

@@ -21,11 +21,12 @@ router.post(
 
       const ticketComment = req.body;
       ticketComment.created_by = req.decoded.id;
-      const { created_by, comment } = ticketComment;
+      ticketComment.ticket_id = ticketId;
+      const { created_by, comment, ticket_id } = ticketComment;
 
       const { newComment } = await CommentMethods.createComment({
         ticketId: ticketId,
-        params: { created_by, comment },
+        params: { created_by, comment, ticket_id },
       });
       res.status(201).json(newComment);
     } catch (error) {
