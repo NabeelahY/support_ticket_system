@@ -36,6 +36,12 @@ export class SupportMethods {
     return { tickets };
   }
 
+  static async getAllTickets(): Promise<{ tickets: any }> {
+    let tickets = await SupportModel.find().populate('comments');
+
+    return { tickets };
+  }
+
   static async getTicketById(ticketId: string): Promise<{ ticket: any }> {
     let ticket = await SupportModel.findOne({ _id: ticketId }).populate(
       'comments'
