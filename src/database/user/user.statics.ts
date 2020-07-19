@@ -19,9 +19,9 @@ export class UserMethods {
   }: UserParams): Promise<{ newUser: User; token: string }> {
     let user = params;
     const newUser = new UserModel(user);
+    newUser.isAdmin ? (newUser.isSupport = true) : '';
     await newUser.save();
 
-    newUser.isAdmin ? (newUser.isSupport = true) : '';
     const token = JWT.generateToken({
       id: newUser.id,
       email: newUser.email,
