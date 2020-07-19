@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import { isAdmin } from '../../middlewares/isAdmin';
 import { restricted } from '../../middlewares/restricted';
 import { SupportMethods } from '../../database/support/support.statics';
 import { isSupportAgent } from '../../middlewares/isSupportAgent';
