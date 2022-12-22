@@ -50,7 +50,7 @@
     "express-validator": "^6.6.0",
     "helmet": "^3.23.3",
     "json2csv": "^5.0.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.27.0",
     "mongoose": "^5.9.22",
     "ts-node": "^8.10.2",
